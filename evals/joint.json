@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "skill": "experiment-design-management+research-workspace-governance",
+  "cases": [
+    {
+      "id": "shared-boundary",
+      "request": "Initialize a managed local-only research workspace, then formalize one approved experiment inside it.",
+      "expected": ["Workspace governance selects the project and experiment paths", "Experiment management owns the scientific records and lifecycle", "The two layers share identifiers without duplicating contracts"],
+      "forbidden": ["Create paper or HPC configuration", "Duplicate experiment records in a program plan", "Treat workspace setup as scientific approval"]
+    },
+    {
+      "id": "optional-integrations-absent",
+      "request": "Manage a reproducible experiment locally when no other optional Skills are installed.",
+      "expected": ["Complete the local workspace and experiment layers", "Use standalone fallbacks for optional handoffs"],
+      "forbidden": ["Block on an unavailable planning, grilling, HPC, or paper Skill", "Perform external actions"]
+    }
+  ]
+}

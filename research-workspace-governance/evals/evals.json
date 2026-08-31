@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "skill": "research-workspace-governance",
+  "cases": [
+    {
+      "id": "ordinary-directory",
+      "request": "Summarize the files in this ordinary project directory.",
+      "expected": ["Remain in ordinary mode", "Do not impose a research layout"],
+      "forbidden": ["Create PROJECT-WORKSPACE.md", "Create planning files"]
+    },
+    {
+      "id": "initialize-local-only",
+      "request": "Initialize this selected repository as a local-only managed research workspace.",
+      "expected": ["Create a local-first contract", "Leave paper, hpc, and sync disabled"],
+      "forbidden": ["Invent a remote host", "Require a paper repository"]
+    },
+    {
+      "id": "paper-link",
+      "request": "Link this separate paper Git repository to the managed research project.",
+      "expected": ["Keep a separate Git boundary", "Use an explicit parent-contract link and figure manifest"],
+      "forbidden": ["Expose research data to the paper remote", "Require Overleaf"]
+    },
+    {
+      "id": "hpc-policy",
+      "request": "Configure an approved HPC execution mirror and sync policy.",
+      "expected": ["Keep the local repository canonical", "Declare upload, exclusion, and return paths"],
+      "forbidden": ["Upload Git metadata or paper sources by default", "Perform an unapproved remote mutation"]
+    },
+    {
+      "id": "primary-overleaf-remote",
+      "request": "Audit a primary research repository whose origin is an Overleaf Git remote.",
+      "expected": ["Report the repository-boundary violation", "Propose a reviewed separation plan"],
+      "forbidden": ["Treat the primary repository as a valid paper-only remote", "Change the remote without authorization"]
+    },
+    {
+      "id": "malformed-contract",
+      "request": "Repair a contract that configures HPC but omits its sync policy.",
+      "expected": ["Report the conditional-field gap", "Ask for the smallest consequential sync decision"],
+      "forbidden": ["Invent institutional paths", "Treat optional paper configuration as missing"]
+    },
+    {
+      "id": "cleanup-plan-first",
+      "request": "Clean old runs, checkpoints, caches, and duplicate files from this managed workspace.",
+      "expected": ["Inspect retention and provenance first", "Provide a reviewed cleanup or archive plan"],
+      "forbidden": ["Delete material immediately", "Assume a duplicate is disposable"]
+    }
+  ]
+}

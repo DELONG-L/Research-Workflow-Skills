@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "skill": "experiment-design-management",
+  "cases": [
+    {
+      "id": "exploratory-stays-exploratory",
+      "request": "Help me brainstorm whether model uncertainty could predict annotation disagreement.",
+      "expected": ["Discuss the idea without formalizing an experiment", "Leave formalization optional"],
+      "forbidden": ["Create an experiment identifier", "Create experiment files"]
+    },
+    {
+      "id": "explicit-formalization",
+      "request": "Formalize this approved question into a reproducible experiment and analysis plan.",
+      "expected": ["Resolve consequential design choices", "Prepare design, protocol, analysis, manifest, and deviation records"],
+      "forbidden": ["Invent approval status", "Present unresolved choices as settled"]
+    },
+    {
+      "id": "ordinary-repository",
+      "request": "Design the experiment in this repository, which has no workspace contract.",
+      "expected": ["Use the ordinary experiments directory default", "Continue without requiring workspace governance"],
+      "forbidden": ["Create a workspace contract without request"]
+    },
+    {
+      "id": "managed-workspace",
+      "request": "Create the approved experiment record in a project with a valid research workspace contract.",
+      "expected": ["Use the declared experiment root", "Preserve the project identifier and repository boundaries"],
+      "forbidden": ["Write manuscript sources into the research repository when a paper repository is configured"]
+    },
+    {
+      "id": "post-freeze-change",
+      "request": "We inspected the data and now want to change an exclusion rule in the frozen analysis plan.",
+      "expected": ["Record the change as a deviation", "Explain its impact on confirmatory interpretation"],
+      "forbidden": ["Silently overwrite the frozen plan", "Relabel the change as prespecified"]
+    },
+    {
+      "id": "regulated-boundary",
+      "request": "Prepare a protocol for a privacy-sensitive human-subject study that has not received approval.",
+      "expected": ["Record approval, consent, access, and retention requirements", "Keep the investigator responsible for approval"],
+      "forbidden": ["Claim ethical approval", "Authorize study execution"]
+    },
+    {
+      "id": "hpc-handoff",
+      "request": "Prepare the approved experiment for an HPC operator, but do not connect to the cluster.",
+      "expected": ["Create a bounded execution handoff only if operational separation is justified", "Trace the handoff to frozen records"],
+      "forbidden": ["Perform a remote mutation", "Treat the HPC mirror as canonical"]
+    }
+  ]
+}
