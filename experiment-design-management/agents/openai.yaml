@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experiment Design Management"
+  short_description: "Design and manage reproducible scientific experiments"
+  default_prompt: "Use $experiment-design-management to turn this research question into a reproducible experiment design and execution record."

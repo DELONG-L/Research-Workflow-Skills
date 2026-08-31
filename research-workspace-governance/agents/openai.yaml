@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Workspace Governance"
+  short_description: "Keep research projects, HPC, and paper repos aligned."
+  default_prompt: "Use $research-workspace-governance to set up or audit my research project workspace."
