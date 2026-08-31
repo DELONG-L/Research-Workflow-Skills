@@ -22,10 +22,10 @@ formalization optional.
 
 ## First-use setup
 
-0. If the user-selected project resolves a `PROJECT-WORKSPACE.md` with `workspace_kind: research`, read it before inspecting the repository. Use its `project_id`, experiment root, data boundaries, and declared paper/HPC paths; do not create a contract merely because an experiment is being planned. If it is missing or malformed and the user asked for workspace setup or repair, hand off to `research-workspace-governance`.
+0. If the user-selected project resolves a `PROJECT-WORKSPACE.md` with `workspace_kind: research`, read it before inspecting the repository. Use its `project_id`, experiment root, data boundaries, and any configured paper/HPC paths; do not create a contract merely because an experiment is being planned. If it is missing or malformed and the user asked for workspace setup or repair, use `research-workspace-governance` when available. Otherwise report the contract gap and ask only for the smallest path or boundary decision needed; do not block ordinary experiment design on an optional workspace integration.
 1. Inspect the repository for an existing experiment registry, data-management plan, ethics requirements, and naming conventions.
 2. Do not initialize a tracker or ticket directory for a research experiment by default. Keep execution state in the experiment's canonical records. If the user wants a separate product-engineering tracker, follow the repository's existing convention or ask which tracker to use.
-3. If experimental terminology or design boundaries are ambiguous and the user wants them stress-tested, use `grilling`. Record resolved terminology and decisions directly in `design.md`; do not create a separate glossary or ADR workflow by default.
+3. If experimental terminology or design boundaries are ambiguous and the user wants them stress-tested, use `grilling` when available; otherwise stress-test the consequential decisions directly. Record resolved terminology and decisions in `design.md`; do not create a separate glossary or ADR workflow by default.
 4. Propose an experiment identifier such as `EXP-2026-001`; do not create records or change a protocol until the researcher confirms the design boundary.
 
 Use the contract's experiment root when a managed workspace applies; otherwise use `experiments/<experiment-id>/` by default in a research repository. In a projectless session, use `work/experiments/<experiment-id>/`. Read [experiment-records.md](references/experiment-records.md) before creating or revising an experiment record.
@@ -65,11 +65,14 @@ distributed stages, or a separately reviewed pilot-to-main transition. Trace
 it to the frozen source-record versions and keep it operational rather than
 turning it into a product specification.
 
-Use `planning-with-files` only for program-level milestones spanning multiple
-experiments or sessions. Handle reusable software or infrastructure through the
-project's ordinary engineering workflow or existing tracker when the user asks;
-do not require another skill handoff. Call `hpc-access` only after the relevant
-experiment records are ready and the user authorizes remote work.
+Use `planning-with-files`, when available, only for program-level milestones
+spanning multiple experiments or sessions. Otherwise follow the project's
+existing program-planning convention. Handle reusable software or
+infrastructure through the project's ordinary engineering workflow or existing
+tracker when the user asks; do not require another Skill handoff. Use
+`hpc-access` when available only after the relevant experiment records are ready
+and the user authorizes remote work. Without it, prepare a bounded operational
+handoff and stop before ungoverned remote mutation.
 
 ### 4. Preserve provenance during execution
 
@@ -79,7 +82,12 @@ Do not relabel an exploratory result as confirmatory after inspecting it. If the
 
 ### 5. Close and hand off
 
-Before reporting results, complete `results.md` with the design version, data-freeze reference, analysis version, deviations, limitations, and reproduction path. Hand manuscript prose to `paper-writing` and policy or submission constraints to `paper-policy`; those skills do not replace the experiment record.
+Before reporting results, complete `results.md` with the design version,
+data-freeze reference, analysis version, deviations, limitations, and
+reproduction path. When paper Skills are available, hand manuscript prose and
+submission-policy work to them. Otherwise keep the experiment record complete
+and provide a bounded communication handoff; manuscript work never replaces or
+silently changes the experiment record.
 
 Read [integration-contract.md](references/integration-contract.md) when this skill overlaps with other planning, workspace, paper, or engineering skills.
 

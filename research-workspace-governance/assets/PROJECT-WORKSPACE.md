@@ -8,32 +8,9 @@ local:
     - "src"
     - "configs"
     - "scripts"
-paper:
-  repository: "paper"
-  link_file: ".research-workspace.yml"
-  figure_manifest: "figure-manifest.yml"
-hpc:
-  host: "hpc"
-  project_root: "$HOME/projects/<project-id>"
-sync:
-  upload_allow:
-    - "src/"
-    - "configs/"
-    - "scripts/"
-  upload_exclude:
-    - ".git/"
-    - "paper/"
-    - "runs/"
-    - "results/"
-    - "checkpoints/"
-    - "__pycache__/"
-    - ".pytest_cache/"
-    - "artifacts/paper/"
-  return_allow:
-    - "runs/<exp-id>/metrics/"
-    - "runs/<exp-id>/MANIFEST.md"
-    - "runs/<exp-id>/command.sh"
-    - "reports/"
+paper: null
+hpc: null
+sync: null
 ---
 
 # Project Workspace
@@ -42,19 +19,25 @@ sync:
 
 - Local project root: `.`
 - Primary research repository: this directory
-- Paper repository: `paper/` (separate Git repository and Overleaf remote)
-- Remote execution mirror: `$HOME/projects/<project-id>/`
+- Paper repository: not configured
+- Remote execution mirror: not configured
 
 ## Local rules
 
-- Keep raw data, checkpoints, full logs, and large intermediate artifacts out
-  of the paper repository.
-- Add `paper/` to the primary repository's `.gitignore` so the independent
-  paper repository is not accidentally committed as an embedded repository.
 - Keep project-wide planning at the root and experiment records under
   `experiments/EXP-*/`.
-- Promote only final lightweight paper assets into `paper/`; record their
-  provenance in `paper/figure-manifest.yml`.
+- Keep raw data immutable when required by the experiment record and separate
+  derived data from its sources.
+
+## Optional extensions
+
+- Replace `paper: null` with a configured paper mapping only when the project
+  has a separate paper Git repository. Add its path to the primary repository's
+  `.gitignore`, create its explicit parent-contract link, and keep raw data,
+  checkpoints, and full logs out of it.
+- Replace both `hpc: null` and `sync: null` with project-approved mappings only
+  when the project uses a remote execution mirror. Keep the local repository
+  canonical and allow only declared upload and return paths.
 
 ## Change notes
 
