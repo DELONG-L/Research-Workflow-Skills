@@ -9,7 +9,25 @@
 
 [English](README.md)
 
-## 安装
+## 使用 Codex 安装
+
+在能够访问 GitHub 的 Codex 对话中粘贴以下请求：
+
+```text
+请从下面的 GitHub 仓库安装两个 Codex Skills：
+
+https://github.com/DELONG-L/Research-Workflow-Skills
+
+请从 main 分支安装以下仓库路径：
+- experiment-design-management
+- research-workspace-governance
+
+不要覆盖已有安装。安装后验证两个 Skill，并告诉我它们将从下一轮对话开始可用。
+```
+
+仅提供仓库地址并不代表授权安装；请求中应明确要求 agent 安装指定的 Skill 路径。Codex 的 Skill 安装器在目标目录已存在时会停止，成功下载后会把 Skill 安装到当前配置的 Codex Skill 目录。
+
+## 手动安装
 
 请使用保留规范大小写的仓库地址：
 

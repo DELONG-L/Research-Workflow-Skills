@@ -14,7 +14,29 @@ external submission, remote mutation, regulated work, or destructive cleanup.
 
 [中文说明](README.zh-CN.md)
 
-## Install
+## Install with Codex
+
+In a Codex conversation with GitHub access, paste this request:
+
+```text
+Install both Codex Skills from this GitHub repository:
+
+https://github.com/DELONG-L/Research-Workflow-Skills
+
+Install these repository paths from the main branch:
+- experiment-design-management
+- research-workspace-governance
+
+Do not overwrite an existing installation. After installation, validate both
+Skills and tell me that they will be available from my next turn.
+```
+
+Providing the URL alone does not authorize installation. The request should
+explicitly ask the agent to install the named Skill paths. Codex's Skill
+installer aborts when a destination already exists and installs successful
+downloads into the configured Codex Skill directory.
+
+## Manual installation
 
 Clone the repository using its canonical case-preserving URL:
 
