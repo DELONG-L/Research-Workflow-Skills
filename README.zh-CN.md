@@ -1,107 +1,53 @@
-# Research Workflow Skills
+<div align="center">
 
-本仓库提供两个用于可复现研究工作的开源 Codex Skill：
+<h1>Research Workflow Skills</h1>
+<p>设计可复现的实验，组织边界清楚的研究工作区。</p>
+<p><a href="https://github.com/DELONG-L/Research-Workflow-Skills/actions/workflows/validate.yml"><img src="https://github.com/DELONG-L/Research-Workflow-Skills/actions/workflows/validate.yml/badge.svg?branch=main" alt="验证状态"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-333333" alt="MIT 许可证"></a></p>
+<p><a href="#选择技能"><strong>选择技能</strong></a> · <a href="docs/guide.zh-CN.md">使用指南</a> · <a href="README.md">English</a></p>
 
-- `experiment-design-management`：从实验设计到关闭，形式化并管理完整实验生命周期。
-- `research-workspace-governance`：治理本地研究仓库，以及可选的论文仓库和 HPC 扩展。
+</div>
 
-两个 Skill 可以配合使用，也可以独立安装。工作区治理负责路径与仓库边界；实验管理负责科学记录与生命周期状态。任何一个 Skill 都不会自动授予外部提交、远程修改、受监管研究或破坏性清理的权限。
+## 选择技能
 
-[English](README.md)
+| 当前需要 | 使用技能 | 典型输出 |
+|---|---|---|
+| 明确并管理实验 | [experiment-design-management](experiment-design-management/SKILL.md) | 实验方案、运行记录、分析计划与下一步决策依据 |
+| 整理研究工作区 | [research-workspace-governance](research-workspace-governance/SKILL.md) | 工作区契约、文件边界，以及可选的论文仓库和 HPC 连接 |
 
-## 使用 Codex 安装
+两个技能可以分别安装。实验管理负责科学记录与阶段决策；工作区治理负责路径与仓库边界。
 
-在能够访问 GitHub 的 Codex 对话中粘贴以下请求：
+```mermaid
+flowchart LR
+    A[研究问题] --> B[实验设计与管理]
+    B --> C[方案、运行与决策]
+    D[研究工作区] --> E[工作区治理]
+    E --> F[文件、边界与连接]
+```
+
+## 开始使用
+
+可以让 Codex 安装：
 
 ```text
-请从下面的 GitHub 仓库安装两个 Codex Skills：
-
-https://github.com/DELONG-L/Research-Workflow-Skills
-
-请从 main 分支安装以下仓库路径：
-- experiment-design-management
-- research-workspace-governance
-
-不要覆盖已有安装。安装后验证两个 Skill，并告诉我它们将从下一轮对话开始可用。
+安装 https://github.com/DELONG-L/Research-Workflow-Skills 中的两个技能：
+experiment-design-management 和 research-workspace-governance。
+保留已有安装，并校验安装后的技能。
 ```
 
-仅提供仓库地址并不代表授权安装；请求中应明确要求 agent 安装指定的 Skill 路径。Codex 的 Skill 安装器在目标目录已存在时会停止，成功下载后会把 Skill 安装到当前配置的 Codex Skill 目录。
-
-## 手动安装
-
-请使用保留规范大小写的仓库地址：
-
-```sh
-git clone https://github.com/DELONG-L/Research-Workflow-Skills.git
-cd Research-Workflow-Skills
-```
-
-将一个或两个 Skill 目录复制到 Codex Skill 目录。请先确认目标不存在，不要覆盖或合并已有安装。
-
-```sh
-skill_root="${CODEX_HOME:-$HOME/.codex}/skills"
-test ! -e "$skill_root/experiment-design-management"
-test ! -e "$skill_root/research-workspace-governance"
-mkdir -p "$skill_root"
-cp -R experiment-design-management "$skill_root/"
-cp -R research-workspace-governance "$skill_root/"
-```
-
-只安装一个 Skill 时，只需执行对应的检查和复制命令。如果 Codex 没有立即发现新 Skill，请刷新或重启 Codex。
-
-## 调用
-
-两个 Skill 都支持正常的自动发现，也可以显式调用：
+也可以按照[使用指南](docs/guide.zh-CN.md)手动安装。两个技能支持自动发现和显式调用：
 
 ```text
-Use $experiment-design-management to turn this approved research question
-into a reproducible protocol and analysis plan.
+用 $experiment-design-management 把这个研究问题整理成可复现的实验计划。
 
-Use $research-workspace-governance to initialize a local-only research
-workspace in this repository.
+用 $research-workspace-governance 整理这个本地研究工作区。
 ```
 
-开放式研究构想不会自动进入受管理的实验生命周期。普通目录也不会自动变成受管理研究工作区；只有存在有效合约，或用户明确要求初始化或修复时才会进入治理模式。
+## 按项目需要选用
 
-## 工作区模式
+从本地工作区开始。独立论文仓库、Overleaf Git 和 HPC 执行镜像都是可选扩展。技能本身不授权对外投稿、远程修改或破坏性清理。
 
-基础合约仅管理本地仓库：
+开放式想法讨论不必进入完整实验生命周期。需要明确的实验方案、记录和决策时，再采用管理流程。
 
-```text
-project/
-├── PROJECT-WORKSPACE.md
-├── experiments/EXP-.../
-├── src/
-├── configs/
-└── scripts/
-```
+## 继续了解
 
-论文仓库是可选的独立 Git 仓库，通过显式链接指向父合约；Overleaf Git 只是受支持的一种选择，并非必需。HPC 同样可选：启用后，本地仓库仍是规范来源，远程目录只是执行镜像。条件字段和示例见 [`project-workspace-contract.md`](research-workspace-governance/references/project-workspace-contract.md)。
-
-## 验证
-
-验证器使用 Python 3 和 PyYAML，检查两个 Skill 包、工作区合约、UI 元数据、内部链接、评测语料、私有路径与密钥形态、单元测试以及 Git 空白问题。如果环境中存在 Codex 自带的 `quick_validate.py`，也会一并运行。
-
-```sh
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements-dev.txt
-python scripts/validate_all.py
-```
-
-CI 运行同一条仓库级验证命令。
-
-## 版本
-
-- Git 标签表示仓库发布版本，从 `v0.1.0` 开始。
-- `contract_version` 表示 `PROJECT-WORKSPACE.md` 合约模式，只在兼容性要求变化时更新。
-- 后续如创建托管的不可变 Skill 版本，它属于另一种交付机制，不替代 Git 发布历史。
-- `SOURCE_SNAPSHOT.sha256` 记录最初导入时的源文件基线，用于溯源，并不是当前发布树的校验和。
-
-## 卸载
-
-确认准确的安装根目录后，只删除相应的 `experiment-design-management` 和/或 `research-workspace-governance` 目录。卸载 Skill 不会删除它在研究项目中创建的实验或工作区记录。
-
-## 许可证
-
-[MIT](LICENSE)
+[安装、验证与版本](docs/guide.zh-CN.md) · [工作区契约](research-workspace-governance/references/project-workspace-contract.md) · [MIT 许可证](LICENSE)

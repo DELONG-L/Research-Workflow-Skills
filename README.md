@@ -1,136 +1,54 @@
-# Research Workflow Skills
+<div align="center">
 
-Two open-source Codex Skills for governing reproducible research work:
+<h1>Research Workflow Skills</h1>
+<p>Design reproducible experiments. Keep research workspaces organized.</p>
+<p><a href="https://github.com/DELONG-L/Research-Workflow-Skills/actions/workflows/validate.yml"><img src="https://github.com/DELONG-L/Research-Workflow-Skills/actions/workflows/validate.yml/badge.svg?branch=main" alt="Validation"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-333333" alt="MIT licence"></a></p>
+<p><a href="#choose-a-skill"><strong>Choose a skill</strong></a> · <a href="docs/guide.md">User guide</a> · <a href="README.zh-CN.md">简体中文</a></p>
 
-- `experiment-design-management` formalizes and manages an experiment from
-  design through closure.
-- `research-workspace-governance` governs a local research repository with
-  optional paper-repository and HPC extensions.
+</div>
 
-The Skills are complementary but independently installable. Workspace
-governance owns paths and repository boundaries; experiment management owns
-scientific records and lifecycle state. Neither Skill grants permission for
-external submission, remote mutation, regulated work, or destructive cleanup.
+## Choose a skill
 
-[中文说明](README.zh-CN.md)
+| You need to | Use | Typical output |
+|---|---|---|
+| Formalize and manage an experiment | [experiment-design-management](experiment-design-management/SKILL.md) | A protocol, run records, analysis plan, and evidence for the next decision |
+| Organize a research workspace | [research-workspace-governance](research-workspace-governance/SKILL.md) | A workspace contract, explicit file boundaries, and optional paper/HPC connections |
 
-## Install with Codex
+The skills are independently installable. Experiment management owns scientific records and lifecycle decisions; workspace governance owns paths and repository boundaries.
 
-In a Codex conversation with GitHub access, paste this request:
+```mermaid
+flowchart LR
+    A[Research question] --> B[Experiment design and management]
+    B --> C[Protocol, runs, and decisions]
+    D[Research workspace] --> E[Workspace governance]
+    E --> F[Files, boundaries, and connections]
+```
+
+## Get started
+
+Ask Codex:
 
 ```text
-Install both Codex Skills from this GitHub repository:
-
-https://github.com/DELONG-L/Research-Workflow-Skills
-
-Install these repository paths from the main branch:
-- experiment-design-management
-- research-workspace-governance
-
-Do not overwrite an existing installation. After installation, validate both
-Skills and tell me that they will be available from my next turn.
+Install the two skills from https://github.com/DELONG-L/Research-Workflow-Skills:
+experiment-design-management and research-workspace-governance.
+Preserve existing installations and validate the installed skills.
 ```
 
-Providing the URL alone does not authorize installation. The request should
-explicitly ask the agent to install the named Skill paths. Codex's Skill
-installer aborts when a destination already exists and installs successful
-downloads into the configured Codex Skill directory.
-
-## Manual installation
-
-Clone the repository using its canonical case-preserving URL:
-
-```sh
-git clone https://github.com/DELONG-L/Research-Workflow-Skills.git
-cd Research-Workflow-Skills
-```
-
-Copy one or both Skill directories into your Codex Skill directory. Check for
-existing installations first; do not merge over an installed copy.
-
-```sh
-skill_root="${CODEX_HOME:-$HOME/.codex}/skills"
-test ! -e "$skill_root/experiment-design-management"
-test ! -e "$skill_root/research-workspace-governance"
-mkdir -p "$skill_root"
-cp -R experiment-design-management "$skill_root/"
-cp -R research-workspace-governance "$skill_root/"
-```
-
-To install only one Skill, run only its matching preflight and copy command.
-Restart or refresh Codex after installation if it does not discover the Skill
-immediately.
-
-## Invoke
-
-Both Skills allow normal automatic discovery. They can also be invoked
-explicitly:
+Or use the [manual installation guide](docs/guide.md#manual-installation). Both skills support automatic discovery and explicit invocation:
 
 ```text
-Use $experiment-design-management to turn this approved research question
-into a reproducible protocol and analysis plan.
+Use $experiment-design-management to formalize this research question
+into a reproducible experiment plan.
 
-Use $research-workspace-governance to initialize a local-only research
-workspace in this repository.
+Use $research-workspace-governance to organize this local research workspace.
 ```
 
-Open-ended idea discovery does not activate the managed experiment lifecycle.
-Ordinary directories do not become managed research workspaces unless a valid
-contract exists or the user explicitly requests initialization or repair.
+## Adapt to your project
 
-## Workspace modes
+Start with a local workspace. A separate paper repository, Overleaf Git, and HPC execution mirror are optional extensions. Neither skill grants permission for external submission, remote changes, or destructive cleanup.
 
-The base contract is local-only:
+Open-ended ideation does not require a managed experiment lifecycle. Use the full workflow when you want explicit protocols, records, and decisions.
 
-```text
-project/
-├── PROJECT-WORKSPACE.md
-├── experiments/EXP-.../
-├── src/
-├── configs/
-└── scripts/
-```
+## Learn more
 
-A paper repository is an optional, separate Git repository linked explicitly
-to the parent contract. Overleaf Git is supported but not required. HPC is
-also optional: when configured, the local repository remains canonical and the
-remote directory is only an execution mirror. See
-[`project-workspace-contract.md`](research-workspace-governance/references/project-workspace-contract.md)
-for the conditional fields and examples.
-
-## Validate
-
-The validator uses Python 3 and PyYAML. It validates both Skill packages,
-workspace contracts, UI metadata, links, evaluation corpora, private-path and
-secret patterns, unit tests, and Git whitespace. When Codex's bundled
-`quick_validate.py` is available, it runs that validator too.
-
-```sh
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements-dev.txt
-python scripts/validate_all.py
-```
-
-CI runs the same repository-level command.
-
-## Versions
-
-- Git tags describe repository releases, beginning with `v0.1.0`.
-- `contract_version` describes the `PROJECT-WORKSPACE.md` schema and changes
-  only when compatibility requires it.
-- Hosted immutable Skill versions, if created later, are a separate delivery
-  mechanism and do not replace Git release history.
-- `SOURCE_SNAPSHOT.sha256` records the original imported source baseline; it
-  is provenance evidence, not the checksum of the current release tree.
-
-## Uninstall
-
-Confirm the exact installation root, then remove only the corresponding
-`experiment-design-management` and/or `research-workspace-governance`
-directories. Removing a Skill does not remove research records the Skill
-created inside your projects.
-
-## License
-
-[MIT](LICENSE)
+[Installation, validation, and versions](docs/guide.md) · [Workspace contract](research-workspace-governance/references/project-workspace-contract.md) · [MIT licence](LICENSE)
