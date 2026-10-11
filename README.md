@@ -16,7 +16,7 @@
 
 The skills are independently installable. Experiment management owns scientific records and lifecycle decisions; workspace governance owns paths and repository boundaries.
 
-[![Two independent workflows: research question → experiment design and management → protocol, runs, and decisions; research workspace → workspace governance → files, boundaries, and connections.](docs/illustrations/research-workflows-en.png)](docs/illustrations/research-workflows-en.png)
+[![Two independent skills: experiment design and management produces protocols, run records, and decisions; workspace governance organizes files, boundaries, and connections.](docs/illustrations/skills-overview-en.png)](docs/illustrations/skills-overview-en.png)
 
 ## Get started
 

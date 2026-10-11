@@ -16,7 +16,7 @@
 
 两个技能可以分别安装。实验管理负责科学记录与阶段决策；工作区治理负责路径与仓库边界。
 
-[![两个独立流程：研究问题 → 实验设计与管理 → 方案、运行与决策；研究工作区 → 工作区治理 → 文件、边界与连接。](docs/illustrations/research-workflows-zh.png)](docs/illustrations/research-workflows-zh.png)
+[![两项可独立使用的技能：实验设计与管理提供实验方案、运行记录与后续决策；工作区治理组织文件、工作区边界及仓库与资源连接。](docs/illustrations/skills-overview-zh.png)](docs/illustrations/skills-overview-zh.png)
 
 ## 开始使用
 
