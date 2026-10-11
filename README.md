@@ -22,6 +22,8 @@ flowchart LR
     B --> C[Protocol, runs, and decisions]
     D[Research workspace] --> E[Workspace governance]
     E --> F[Files, boundaries, and connections]
+    classDef stage fill:#f7f8f5,stroke:#aab8ae,color:#1f3028;
+    class A,B,C,D,E,F stage;
 ```
 
 ## Get started

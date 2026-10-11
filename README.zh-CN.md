@@ -22,6 +22,8 @@ flowchart LR
     B --> C[方案、运行与决策]
     D[研究工作区] --> E[工作区治理]
     E --> F[文件、边界与连接]
+    classDef stage fill:#f7f8f5,stroke:#aab8ae,color:#1f3028;
+    class A,B,C,D,E,F stage;
 ```
 
 ## 开始使用
