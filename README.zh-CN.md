@@ -16,15 +16,7 @@
 
 两个技能可以分别安装。实验管理负责科学记录与阶段决策；工作区治理负责路径与仓库边界。
 
-```mermaid
-flowchart LR
-    A[研究问题] --> B[实验设计与管理]
-    B --> C[方案、运行与决策]
-    D[研究工作区] --> E[工作区治理]
-    E --> F[文件、边界与连接]
-    classDef stage fill:#f7f8f5,stroke:#aab8ae,color:#1f3028;
-    class A,B,C,D,E,F stage;
-```
+[![两个独立流程：研究问题 → 实验设计与管理 → 方案、运行与决策；研究工作区 → 工作区治理 → 文件、边界与连接。](docs/illustrations/research-workflows.png)](docs/illustrations/research-workflows.png)
 
 ## 开始使用
 

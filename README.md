@@ -16,15 +16,7 @@
 
 The skills are independently installable. Experiment management owns scientific records and lifecycle decisions; workspace governance owns paths and repository boundaries.
 
-```mermaid
-flowchart LR
-    A[Research question] --> B[Experiment design and management]
-    B --> C[Protocol, runs, and decisions]
-    D[Research workspace] --> E[Workspace governance]
-    E --> F[Files, boundaries, and connections]
-    classDef stage fill:#f7f8f5,stroke:#aab8ae,color:#1f3028;
-    class A,B,C,D,E,F stage;
-```
+[![Two independent workflows: research question → experiment design and management → protocol, runs, and decisions; research workspace → workspace governance → files, boundaries, and connections.](docs/illustrations/research-workflows.png)](docs/illustrations/research-workflows.png)
 
 ## Get started
 
